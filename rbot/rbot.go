@@ -1,4 +1,4 @@
-package main
+package rbot
 
 import (
 	"bytes"
@@ -234,22 +234,6 @@ func newrbot(session *mgo.Session, dbname string, logger *log.Logger) (b rbot) {
 	}
 
 	return b
-}
-
-func main() {
-	logger := log.New(os.Stderr, "rbot ", log.LstdFlags)
-
-	if len(os.Args) < 3 {
-		logger.Printf("usage: %s <mongodb-server> <db-name>", os.Args[0])
-		os.Exit(1)
-	}
-
-	for {
-		logger.Printf("launching bot\n")
-		err := bot(logger, os.Args[1], os.Args[2])
-		logger.Printf("bot failed: %s\n", err)
-		time.Sleep(300 * time.Second)
-	}
 }
 
 func bot(logger *log.Logger, dbserver, dbname string) (err error) {
