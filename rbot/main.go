@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 	"time"
-	"rbot"
+	"github.com/wiccatech/rbot"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 
 	for {
 		logger.Printf("launching bot\n")
-		err := rbot.bot(logger, os.Args[1], os.Args[2])
+		err := rbot.Run(logger, os.Args[1], os.Args[2])
 		logger.Printf("bot failed: %s\n", err)
 		time.Sleep(300 * time.Second)
 	}

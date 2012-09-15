@@ -236,7 +236,7 @@ func newrbot(session *mgo.Session, dbname string, logger *log.Logger) (b rbot) {
 	return b
 }
 
-func bot(logger *log.Logger, dbserver, dbname string) (err error) {
+func Run(logger *log.Logger, dbserver, dbname string) (err error) {
 
 	session, err := mgo.Dial(os.Args[1])
 	if err != nil {
